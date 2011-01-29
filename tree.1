@@ -14,14 +14,12 @@
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
-
 .\" options that are common to ls are ripped off ls(1)
-
 .Dd Jun 20, 2006
 .Dt TREE 1
 .Os
 .Sh NAME
-.Nm tree
+.Nm
 .Nd display an ascii tree of a directory's contents
 .Sh SYNOPSIS
 .Nm tree
@@ -67,7 +65,7 @@ Sort by time modified (most recently modified first).
 Prevents
 .Nm
 from descending into directories that have a device number different than that of the file from which the descent began.
-
+.El
 .Sh SEE ALSO
 .Xr find 1 ,
 .Xr ls 1
