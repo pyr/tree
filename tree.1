@@ -1,0 +1,73 @@
+.\"	$Id: tree.1,v 1.2 2006/06/21 18:26:51 panda Exp $
+.\"
+.\" Copyright (c) 2006 Pierre-Yves Ritschard <pyr@spootnik.org>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+
+.\" options that are common to ls are ripped off ls(1)
+
+.Dd Jun 20, 2006
+.Dt TREE 1
+.Os
+.Sh NAME
+.Nm tree
+.Nd display an ascii tree of a directory's contents
+.Sh SYNOPSIS
+.Nm tree
+.Op Fl adfFilrstx
+.Op Fl L Ar depth
+.Ar path ...
+.Sh DESCRIPTION
+The
+.Nm
+utility displays a small
+.Xr ASCII 7
+formatted tree of directories. It can be really useful to get a
+quick glance of a directory structure.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl a
+Include directory entries whose names begin with a dot (`.').
+.It Fl d
+Only show directories.
+.It Fl f
+Show full path for each entry.
+.It Fl F
+Display a slash (`/') immediately after each pathname that is a directory,
+an asterisk (`*') after each that is executable, an at sign (`@') after each
+symbolic link, an equal sign (`=') after each socket, and a vertical bar
+(`|') after each that is a FIFO.
+.It Fl i
+Do not print nice tree indentation, if you want this, you should be using
+.Xr find 1
+instead.
+.It Fl l
+Symbolic links are followed.
+.It Fl L Ar depth
+Directory recursion stops at depth `depth'.
+.It Fl r
+Reverse sort order, whether it is alphabetical or by time modified.
+.It Fl s
+Do not print directory count and file count.
+.It Fl t
+Sort by time modified (most recently modified first).
+.It Fl x
+Prevents
+.Nm
+from descending into directories that have a device number different than that of the file from which the descent began.
+
+.Sh SEE ALSO
+.Xr find 1 ,
+.Xr ls 1
