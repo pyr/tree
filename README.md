@@ -34,7 +34,7 @@ Some interesting features of tree:
 
 # download
 
- The latest release is tree 0.61
+ The latest release is tree 0.62
  Tree is now in the OpenBSD ports tree.
 
 # manpage
