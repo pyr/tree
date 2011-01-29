@@ -139,7 +139,7 @@ format_entry(FTSENT *entry)
 
 	if (entry->fts_info == FTS_SL) {
 		bzero(buf, MAXPATHLEN + 1);
-		if (readlink(entry->fts_path, buf, MAXPATHLEN) == -1)
+		if (readlink(entry->fts_accpath, buf, MAXPATHLEN) == -1)
 			err(1, "readlink: %s", entry->fts_path);
 		sz += strlen(buf) + 5;
 		if ((str = realloc(str, sz)) == NULL)
