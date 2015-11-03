@@ -39,4 +39,4 @@ Some interesting features of tree:
 
 # manpage
 
-[tree(1)](http://spootnik.org/ipcalc/ipcalc.1.html)
+**tree(1)**
