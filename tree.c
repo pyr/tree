@@ -17,14 +17,14 @@
 
 #include <sys/stat.h>
 #include <sys/time.h>
-#include <limits.h>
+
 #include <err.h>
-#include <stdio.h>
-#include <getopt.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include <fts.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 static int 		 aflag = 0;
 static int 		 dflag = 0;
