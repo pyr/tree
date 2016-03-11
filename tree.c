@@ -15,10 +15,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include <sys/param.h>
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#include <limits.h>
 #include <err.h>
 #include <stdio.h>
 #include <getopt.h>
@@ -101,7 +100,7 @@ sort_entries(const FTSENT **e1, const FTSENT **e2)
 char *
 format_entry(FTSENT *entry)
 {
-	char		 buf[MAXPATHLEN + 1];
+	char		 buf[PATH_MAX + 1];
 	char		*str;
 	size_t		 sz;
 
@@ -138,8 +137,8 @@ format_entry(FTSENT *entry)
 	}
 
 	if (entry->fts_info == FTS_SL) {
-		bzero(buf, MAXPATHLEN + 1);
-		if (readlink(entry->fts_accpath, buf, MAXPATHLEN) == -1)
+		bzero(buf, PATH_MAX + 1);
+		if (readlink(entry->fts_accpath, buf, PATH_MAX) == -1)
 			err(1, "readlink: %s", entry->fts_path);
 		sz += strlen(buf) + 5;
 		if ((str = realloc(str, sz)) == NULL)
