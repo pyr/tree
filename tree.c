@@ -245,6 +245,8 @@ walk(char *path, int ftsoptions)
 		(void)printf("%s\n", ename);
 		free(ename);
 	}
+	free(show_bar);
+
 	if (sflag == 1)
 		return;
 	(void)printf("\n%d director%s", ndir, (ndir > 1) ? "ies" : "y");
