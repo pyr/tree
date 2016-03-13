@@ -314,7 +314,7 @@ main(int argc, char *argv[])
 				break;
 			default:
 				(void)fprintf(stderr,
-					      "usage: %s [-adfFilsrtx] [-L depth] [path ...]\n",
+					      "usage: %s [-adfFilrstx] [-L depth] [path ...]\n",
 					      __progname);
 				return 1;
 		}
