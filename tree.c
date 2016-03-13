@@ -40,7 +40,9 @@ int		 	 has_child(FTSENT *);
 int			 sort_entries(const FTSENT **, const FTSENT **);
 char 			*format_entry(FTSENT *);
 void		 	 walk(char *, int);
-__dead void		 usage(void);
+
+extern char		*__progname;
+
 
 int
 has_child(FTSENT *entry)
@@ -253,16 +255,6 @@ walk(char *path, int ftsoptions)
 	(void)printf("\n");
 }
 
-void
-usage(void)
-{
-	extern char	*__progname;
-
-	(void)fprintf(stderr,
-		      "usage: %s [-adfFilsrtx] [-L depth] [path ...]\n",
-		      __progname);
-	exit(1);
-}
 
 int
 main(int argc, char *argv[])
@@ -274,7 +266,7 @@ main(int argc, char *argv[])
 
 	ftsoptions = FTS_PHYSICAL;
 
-	for(; (c = getopt(argc, argv, "adfFilL:srtx")) != -1; ) {
+	while ((c = getopt(argc, argv, "adfFilL:srtx")) != -1) {
 		switch (c) {
 			case 'a':
 				aflag = 1;
@@ -321,7 +313,10 @@ main(int argc, char *argv[])
 				ftsoptions |= FTS_XDEV;
 				break;
 			default:
-				usage();
+				(void)fprintf(stderr,
+					      "usage: %s [-adfFilrstx] [-L depth] [path ...]\n",
+					      __progname);
+				return 1;
 		}
 	}
 	argc -= optind;
