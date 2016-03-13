@@ -274,7 +274,7 @@ main(int argc, char *argv[])
 
 	ftsoptions = FTS_PHYSICAL;
 
-	for(; (c = getopt(argc, argv, "adfFilL:srtx")) != -1; ) {
+	while ((c = getopt(argc, argv, "adfFilL:srtx")) != -1) {
 		switch (c) {
 			case 'a':
 				aflag = 1;
